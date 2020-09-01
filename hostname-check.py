@@ -1,5 +1,3 @@
-#https://collaborate.akamai.com/confluence/display/GPO/Web+Exp+Products+and+Maprules
-
 import pydig
 import requests
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
