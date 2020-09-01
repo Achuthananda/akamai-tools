@@ -84,13 +84,13 @@ def fetchHostnames(accountSwitchKey,property_list):
         body = result.json()
 
         if code == 200:
-            for i in body['hostnames']['items']:
+            for item in body['hostnames']['items']:
                 hostname_detail = {}
+                hostname_detail['Group'] = i['groupId']
                 hostname_detail['Property'] = body['propertyName']
-                hostname_detail['Hostname'] = i['cnameFrom']
-                hostname_detail['EdgeHostname'] = i['cnameTo']
-                hostname_detail['DNS Record'],hostname_detail['Live'] = getFirstLevelCname(i['cnameFrom'])
-                #print(hostname_detail)
+                hostname_detail['Hostname'] = item['cnameFrom']
+                hostname_detail['EdgeHostname'] = item['cnameTo']
+                hostname_detail['DNS Record'],hostname_detail['Live'] = getFirstLevelCname(item['cnameFrom'])
                 hostname_list.append(hostname_detail)
         else:
         	print ("Failed to retrieve hostname details.")
