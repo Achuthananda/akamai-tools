@@ -121,3 +121,16 @@ X-Cache: TCP_MISS from a2-21-242-215.deploy.akamaitechnologies.com (AkamaiGHost/
 X-Akamai-Request-ID: 14d29e8f.1ee0026
 --------------------------------------------------------------------------------------------------
 ```
+
+# Hostname DNS Reviewer: Account wide mapping of Hostnames to its DNS Records.
+
+As an account grows big, it also becomes very difficult to track the hostnames as well. It is very important to have a list of properties, hostnames, edge hostnames, and their corresponding CNAMEs to get a clear picture of hostnames and their status. This would be very useful if you are an aligned SA to know the health of the account. To get this data, I have developed a simple Python-based script that can be used to run it on any account.
+
+## Usage
+```
+$python hostname-check.py
+Enter Account Switch Key:<AccountID>
+Fetching Hostname details and updating in file: <AccountID>.xlsx
+................
+Done
+```
