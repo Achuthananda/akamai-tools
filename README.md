@@ -151,6 +151,12 @@ You need to have permissions to purge the url. For that you need to create a CCU
 
 ## Usage
 ```
+$:python purge_validator.py
+Incorrect arguments: Correct format is python purge_validator.py <delete/invalidate> <staging/production> <file_containing_urls>
+Example:python purge_validator.py delete staging urls.txt
+```
+
+```
 $:python purge_validator.py delete staging urls.txt
 http://www.dutchclothing.com.edgesuite-staging.net/images/img-sp.png
 Retrying..
