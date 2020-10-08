@@ -1,7 +1,7 @@
 # Akamai Tools
 This repo is a collection of various tools or utilities I have developed to help customers and Akamai employees to improve their daily work with Akamai CDN. Please feel free to download and explore them.
 
-# Installation of Dependencies
+### Installation of Dependencies
 ```
 $pip install -r requirements.txt
 ```
