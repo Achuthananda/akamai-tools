@@ -1,0 +1,6 @@
+pandas==1.1.0
+requests==2.24.0
+urllib3==1.25.10
+texttable==1.6.2
+edgegrid_python==1.1.1
+pydig==0.3.0
