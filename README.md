@@ -205,8 +205,8 @@ Fetching the CP Code Traffic and Writing to file
 ...............................
 Done..
 $
-
+```
 
 ## Output:
 ![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
-![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode2.png)
+![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
