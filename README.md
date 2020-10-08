@@ -151,7 +151,7 @@ Done
 ```
 
 ## Output:
-![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/account_mapping.png)
+![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/account_mapping.png)
 
 
 
@@ -189,3 +189,24 @@ Purging....
 Cache-Status: TCP_MISS
 Purged Successfully
 -------------
+```
+
+# Utility 4: CP Code Traffic Review.
+
+This tool displays all the traffic for all the CP Codes in the Account for last 1 to 3 months. This is a great tool to clean up the CP codes if not being used in last three months. This can also help in finding out the CP code which has the highest and lowest traffic.
+
+## Usage
+```
+$python cp_code_traffic_generator.py
+Enter the Account Switch Key:B-C-1HPCRVY
+Enter the interval you want[1/2/3]:1
+B-C-1HPCRVY.xlsx
+Fetching the CP Code Traffic and Writing to file
+...............................
+Done..
+$
+
+
+## Output:
+![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
+![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode2.png)
