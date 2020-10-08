@@ -6,6 +6,12 @@ This repo is a collection of various tools or utilities I have developed to help
 $pip install -r requirements.txt
 ```
 
+### Credentials
+
+Some of these utilities uses the standard Akamai OPEN credentials file, `.edgerc`. By default, it will look for credentials in your `HOME` directory.
+
+To set up your credential file, see the [authorization](https://developer.akamai.com/introduction/Prov_Creds.html) and [credentials](https://developer.akamai.com/introduction/Conf_Client.html) sections of the Get Started guide.
+
 
 # Utility 1: Comparitive Testing: Response Comparision between Staging and Production Environments
 
