@@ -1,4 +1,13 @@
-# Comparitive Testing: Response Comparision between Staging and Production Environments
+# Akamai Tools
+This repo is a collection of various tools or utilities I have developed to help customers and Akamai employees to improve their daily work with Akamai CDN. Please feel free to download and explore them.
+
+# Installation of Dependencies
+```
+$pip install -r requirements.txt
+```
+
+
+# Utility 1: Comparitive Testing: Response Comparision between Staging and Production Environments
 
 When SA does the implementation of new behavior, modify existing behavior, or delete the behavior, SA first pushes to staging to test. Comparing the behavior between staging and production is a common task to see if the new version in staging is working as expected. Many times I copy the response in a text file from both environments and use comparison tools like Beyond Compare. It would be great if we can have a side by side comparison of responses between staging and production networks without having to do manual work.
 
@@ -122,7 +131,7 @@ X-Akamai-Request-ID: 14d29e8f.1ee0026
 --------------------------------------------------------------------------------------------------
 ```
 
-# Hostname DNS Reviewer: Account wide mapping of Hostnames to its DNS Records.
+# Utility 2: Hostname DNS Reviewer: Account wide mapping of Hostnames to its DNS Records.
 
 As an account grows big, it also becomes very difficult to track the hostnames as well. It is very important to have a list of properties, hostnames, edge hostnames, and their corresponding CNAMEs to get a clear picture of hostnames and their status. This would be very useful if you are an aligned SA to know the health of the account. To get this data, I have developed a simple Python-based script that can be used to run it on any account.
 
@@ -134,3 +143,33 @@ Fetching Hostname details and updating in file: <AccountID>.xlsx
 ................
 Done
 ```
+
+
+# Utility 3: Akamai Purge Validator
+When we often purge a URL we know that the url is purged across Akamai Network. But often customers ask for validation.This script is aimed for that. This script reads a list of urls you want to purge from Akamai Staging or Production Network. For each of the url, the script requests the content by requesting more than once for the same content and ensures that it is cached in the Akamai Servers and then it purges the url and then re request the same edge server to see if the content is still cached.
+You need to have permissions to purge the url. For that you need to create a CCU API client and give its credentials.
+
+## Usage
+```
+$:python purge_validator.py delete staging urls.txt
+http://www.dutchclothing.com.edgesuite-staging.net/images/img-sp.png
+Retrying..
+Retrying..
+Cache-Status: TCP_HIT
+Purging....
+Cache-Status: TCP_MISS
+Purged Successfully
+-------------
+http://www.dutchclothing.com.edgesuite-staging.net/images/5.jpg
+Retrying..
+Cache-Status: TCP_HIT
+Purging....
+Cache-Status: TCP_MISS
+Purged Successfully
+-------------
+http://www.dutchclothing.com.edgesuite-staging.net/images/5.jpg
+Cache-Status: TCP_HIT
+Purging....
+Cache-Status: TCP_MISS
+Purged Successfully
+-------------
