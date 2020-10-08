@@ -208,5 +208,5 @@ $
 ```
 
 ## Output:
-![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
-![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
+![alt text1](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
+![alt text2](https://github.com/Achuthananda/akamai-tools/blob/master/assets/cpcode1.png)
