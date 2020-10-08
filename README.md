@@ -144,6 +144,10 @@ Fetching Hostname details and updating in file: <AccountID>.xlsx
 Done
 ```
 
+## Output:
+![alt text](https://github.com/Achuthananda/akamai-tools/blob/master/account_mapping.png)
+
+
 
 # Utility 3: Akamai Purge Validator
 When we often purge a URL we know that the url is purged across Akamai Network. But often customers ask for validation.This script is aimed for that. This script reads a list of urls you want to purge from Akamai Staging or Production Network. For each of the url, the script requests the content by requesting more than once for the same content and ensures that it is cached in the Akamai Servers and then it purges the url and then re request the same edge server to see if the content is still cached.
