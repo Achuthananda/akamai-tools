@@ -1,16 +1,16 @@
 # Akamai Tools
 This repo is a collection of various tools or utilities I have developed to help customers and Akamai employees to improve their daily work with Akamai CDN. Please feel free to download and explore them.
 
-### Installation of Dependencies
-```
-$pip install -r requirements.txt
-```
-
 ### Credentials
 
 Some of these utilities uses the standard Akamai OPEN credentials file, `.edgerc`. By default, it will look for credentials in your `HOME` directory.
 
 To set up your credential file, see the [authorization](https://developer.akamai.com/introduction/Prov_Creds.html) and [credentials](https://developer.akamai.com/introduction/Conf_Client.html) sections of the Get Started guide.
+
+### Installation of Dependencies
+```
+$pip install -r requirements.txt
+```
 
 
 # Utility 1: Comparitive Testing: Response Comparision between Staging and Production Environments
