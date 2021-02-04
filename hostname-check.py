@@ -46,20 +46,28 @@ def getProperties(accountSwitchKey,contractid,groupid):
 hostname_list = []
 
 def getFirstLevelCname(hostname):
-    fcname = pydig.query(hostname, 'CNAME')
-    if fcname:
-        if fcname[0].split('.')[-3] in akamai_level1hostnames:
-            join_fcname = '.'.join(fcname)
-            return join_fcname,'Yes'
+    resolver = pydig.Resolver(executable='/usr/bin/dig',additional_args=['+time=2'])
+    try:
+        fcname = resolver.query(hostname, 'CNAME')
+        if fcname:
+            if fcname[0].split('.')[-3] in akamai_level1hostnames:
+                join_fcname = '.'.join(fcname)
+                return join_fcname,'Yes'
+            else:
+                join_fcname = '.'.join(fcname)
+                return join_fcname,'No'
         else:
-            join_fcname = '.'.join(fcname)
-            return join_fcname,'No'
-    else:
-        ip_address = pydig.query(hostname, 'A')
-        if ip_address:
-            return ip_address[0],'No'
-        else:
-            return 'SOA Record','No'
+            try:
+                ip_address = resolver.query(hostname, 'A')
+                if len(ip_address) == 1:
+                    if ip_address:
+                        return ip_address[0],'No'
+                else:
+                    return 'SOA Record','No'
+            except:
+                return 'SOA Record','No'
+    except:
+        return 'SOA Record','No'
 
 def fetchHostnames(accountSwitchKey,property_list):
     for i in property_list:
@@ -91,6 +99,7 @@ def fetchHostnames(accountSwitchKey,property_list):
                 hostname_detail['Hostname'] = item['cnameFrom']
                 hostname_detail['EdgeHostname'] = item['cnameTo']
                 hostname_detail['DNS Record'],hostname_detail['Live'] = getFirstLevelCname(item['cnameFrom'])
+                print(hostname_detail['Hostname'])
                 hostname_list.append(hostname_detail)
         else:
         	print ("Failed to retrieve hostname details.")
