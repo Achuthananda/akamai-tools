@@ -59,7 +59,7 @@ def getFirstLevelCname(hostname):
         else:
             try:
                 ip_address = resolver.query(hostname, 'A')
-                if len(ip_address) == 1:
+                if len(ip_address) >= 1:
                     if ip_address:
                         return ip_address[0],'No'
                 else:
